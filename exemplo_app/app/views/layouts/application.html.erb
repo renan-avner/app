@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+
+    <%= render 'layouts/rails_default' %> <!-- exibe os elementos da pagina rails_default na pasta layouts-->
+    <%= render 'layouts/shim' %>   <!-- exibe os elementos da pagina shim encontrada na pasta layouts -->
+  </head>
+  <body>
+    <%= render 'layouts/header' %>  <!-- exibe os elementos da pagina header encontrada na pasta layouts -->
+    <div class="container">
+       <% flash.each do |message_type, message| %>   
+        <div class="alert alert-<%= message_type %>"><%= message %></div> <!--cria uma div do tipo imagem -->
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %> <!-- exibe os elementos da pagina footer encontrada na pasta layouts -->
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>            
+</html>

@@ -1,0 +1,26 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for(@user, url: signup_path) do |f| %> <!--cria um formulario, alterando os atributos do modelo de usuario ao clicar no botao enviar,  -->
+    <%= render 'shared/error_messages' %> <!--chama a pagina app/views/shared/_error_messages.html.erb-->
+
+
+      <%= f.label :name %>       <!--pega o nome do atributo do modelo do usuario NAO A VARIAVEL MAS O NOME!!--> 
+      <%= f.text_field :name %>  <!--atribui o valor digitado a variavel name do modelo de usuario--> 
+
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %><!--pega a string digitada  "confirmation" no lugar --> 
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %> <!--confirma a alteração  no modelo de usuario-->
+    <% end %>
+  </div>
+</div>
